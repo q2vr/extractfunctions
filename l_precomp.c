@@ -1057,7 +1057,8 @@ void PC_ConvertPath( char *path ) {
 	{
 		if ( ( *ptr == '\\' || *ptr == '/' ) &&
 			 ( *( ptr + 1 ) == '\\' || *( ptr + 1 ) == '/' ) ) {
-			strcpy( ptr, ptr + 1 );
+            int len = strlen(ptr + 1);
+            memmove( ptr, ptr+1, len);
 		} //end if
 		else
 		{

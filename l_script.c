@@ -1141,7 +1141,8 @@ char PS_NextWhiteSpaceChar( script_t *script ) {
 //============================================================================
 void StripDoubleQuotes( char *string ) {
 	if ( *string == '\"' ) {
-		strcpy( string, string + 1 );
+        int len = strlen(string + 1);
+        memmove( string, string+1, len);
 	} //end if
 	if ( string[strlen( string ) - 1] == '\"' ) {
 		string[strlen( string ) - 1] = '\0';
@@ -1155,7 +1156,8 @@ void StripDoubleQuotes( char *string ) {
 //============================================================================
 void StripSingleQuotes( char *string ) {
 	if ( *string == '\'' ) {
-		strcpy( string, string + 1 );
+        int len = strlen(string + 1);
+        memmove( string, string+1, len);
 	} //end if
 	if ( string[strlen( string ) - 1] == '\'' ) {
 		string[strlen( string ) - 1] = '\0';
